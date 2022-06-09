@@ -2,8 +2,8 @@ class User < ApplicationRecord
 
     # to secure the password
     has_secure_password
-    has_many:diets
-    has_many:workouts
+    has_many :diets
+    has_many :workouts
 
     #validation
     validates :name, presence: true, uniqueness: true
@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validate :permitted_emails
 
     def permitted_emails
-        unless email.match?(/gmail.com|yahoo.com\icloud.com/)
+        unless email.match?(/gmail.com|yahoo.com|icloud.com/)
             errors.add(:permitted_emails, "sorry ,that email not permitted")
         end
     end

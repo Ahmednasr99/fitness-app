@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
 
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entitiy_response
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
     include ActionController::Cookies
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::API
     # private methods 
     private
 
-    def render_unprocessable_entitiy_response(invalid)
+    def render_unprocessable_entity_response(invalid)
         render json: {error: invalid.record.errors}, status: :unprocessable_entity
     end
 

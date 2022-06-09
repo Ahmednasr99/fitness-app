@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Login = ()=>{
+const Login = ({setUser,setIsAuthenticated})=>{
 
     const [username,setUsername]= useState('')
     const [password,setPassword]= useState('')
@@ -23,6 +23,12 @@ const Login = ()=>{
             if(req.ok){
                 let res = await req.json()
                 console.log(res)
+                setUser(res)
+                setIsAuthenticated(true)/*this is to change the state to  true to render the rest of components after user login*/ 
+            }else{
+                let res = await req.json()
+                console.log(res)
+                setError(res)
             }
         }
         request()

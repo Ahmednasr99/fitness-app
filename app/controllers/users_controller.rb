@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     # Group Activity => Set 'authorize_user' to Skip Create Action
 
+    before_action :authorize_user, except: [:login]
+
     # GET "/users"
     def index 
         render json: User.all

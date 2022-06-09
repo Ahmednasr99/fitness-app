@@ -8,5 +8,13 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 
-  post '/login',to: "sessions#login"
+  #end point for login
+
+  post '/login', to: "sessions#login"
+
+  #end point for logout
+  delete '/logout', to: 'sessions#logout'
+
+   #end point for authorized user
+  get '/authorized_user', to: 'users#show'
 end
