@@ -2,7 +2,8 @@
 import './App.css';
 import Login from './components/LogIn';
 import {useState,useEffect} from 'react';
-import Auth from './components/Auth';
+import Navigation from './components/Navigation';
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -29,6 +30,7 @@ function App() {
   return (
     <>
     <div>Hello{user.name}</div>
+    <Navigation setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
 
     </>
   );
