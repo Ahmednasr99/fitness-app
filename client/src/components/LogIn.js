@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Auth from './Auth'
 
 const Login = ({setUser,setIsAuthenticated})=>{
 
@@ -47,6 +48,8 @@ const Login = ({setUser,setIsAuthenticated})=>{
             <input type="submit" value="Login" />
             </form>
             {error?<div>{error}</div>:null}
+            
+            <Auth setUser={setUser} setIsAuthenticated={setUser}/>
         </div>
     )
 }

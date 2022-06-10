@@ -7,7 +7,7 @@ function Auth({setUser, setIsAuthenticated}) {
    
     const [errors, setErrors] = useState([])
 
-    function onSubmit(e){
+    function handleSubmit(e){
         e.preventDefault()
         const user = {
             name: username,
@@ -37,7 +37,7 @@ function Auth({setUser, setIsAuthenticated}) {
     return (
         <> 
         <h1>Sign Up</h1>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit}>
         <label>
           Username:
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />

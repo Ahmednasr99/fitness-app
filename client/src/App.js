@@ -14,9 +14,9 @@ function App() {
     .then((res) => {
       if (res.ok) {
         res.json()
-        .then((user) => {
+        .then((r) => {
           setIsAuthenticated(true);
-          setUser(user);
+          setUser(r);
         });
       }
     });
@@ -30,6 +30,12 @@ function App() {
   return (
     <>
     <div>Hello{user.name}</div>
+    <div>meal 1{user.diets.map(r=><div>{r.meal_1}</div>)}</div>
+    <div>meal 2{user.diets.map(r=><div>{r.meal_2}</div>)}</div>
+    <div>meal 3{user.diets.map(r=><div>{r.meal_3}</div>)}</div>
+    <div>meal 4{user.diets.map(r=><div>{r.meal_4}</div>)}</div>
+    <div>meal 5{user.diets.map(r=><div>{r.meal_5}</div>)}</div>
+    <div>meal 6{user.diets.map(r=><div>{r.meal_6}</div>)}</div>
     <Navigation setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
 
     </>

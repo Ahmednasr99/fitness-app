@@ -1,6 +1,6 @@
 
+
 function Navigation({ setIsAuthenticated, setUser, user}) {
-    console.log(user)
     const logout = () => {
         fetch('/logout',{
             method:'DELETE'

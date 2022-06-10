@@ -2,8 +2,8 @@ class User < ApplicationRecord
 
     # to secure the password
     has_secure_password
-    has_many :diets
-    has_many :workouts
+    has_many :diets, dependent: :destroy
+    has_many :workouts, dependent: :destroy
 
     #validation
     validates :name, presence: true, uniqueness: true
