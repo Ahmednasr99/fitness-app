@@ -9,7 +9,7 @@ class ChampionsController < ApplicationController
       
       def show
         champion = Champion.find(params[:id])
-        render json: champion, status: :ok
+        render json: champion
       end
       
       def create

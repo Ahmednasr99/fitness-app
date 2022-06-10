@@ -50,6 +50,7 @@ const Login = ({setUser,setIsAuthenticated})=>{
             {error?<div>{error}</div>:null}
             
             <Auth setUser={setUser} setIsAuthenticated={setUser}/>
+            {error?<div>{error}</div>:null}
         </div>
     )
 }

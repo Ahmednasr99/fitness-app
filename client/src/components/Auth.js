@@ -5,7 +5,7 @@ function Auth({setUser, setIsAuthenticated}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
    
-    const [errors, setErrors] = useState([])
+    const [error, setErrors] = useState([])
 
     function handleSubmit(e){
         e.preventDefault()
@@ -30,7 +30,7 @@ function Auth({setUser, setIsAuthenticated}) {
             
           } else {
             res.json()
-            .then(json => setErrors(json.errors))
+            .then(json => setErrors(json.error))
           }
         })
     }
@@ -55,7 +55,7 @@ function Auth({setUser, setIsAuthenticated}) {
         <br></br>
         <input type="submit" value="Sign up!" />
       </form>
-      { Object.keys(errors) ? Object.keys(errors).map((key, index) => <div>{key+': ' + Object.values(errors)[index]}</div>) : null }
+      { Object.keys(error) ? Object.keys(error).map((key, index) => <div>{key+': ' + Object.values(error)[index]}</div>) : null }
       </>
     )
 }
