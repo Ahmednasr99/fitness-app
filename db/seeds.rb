@@ -63,6 +63,23 @@ friday: "chest and biceps",
 saturday: "back and triceps",
 sunday: "legs and shoulders",
 user_id:u3.id)
+
+
+c1 = Champion.create(name:"Arnold Schwarzenegger",
+image_url:"https://media.newyorker.com/photos/624f484bb8900d61c847f8d7/master/pass/Long-Butler-09.jpg",
+birthDate:"July 30, 1947",
+weight:235,
+category:"open weight",
+nationality:"American Austrian",
+height:188)
+
+c2 = Champion.create(name:"Ronnie Coleman",
+      image_url:"https://preview.redd.it/vn0zzxddtez41.jpg?auto=webp&s=04dd1f676aea9da5237da299902543fa9b9a7132",
+      birthDate:"May 13, 1964",
+      weight:297,
+      category:"open weight",
+      nationality:"American",
+      height:180)
     
     
  

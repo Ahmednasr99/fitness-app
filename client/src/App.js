@@ -36,6 +36,14 @@ function App() {
     <div>meal 4{user.diets.map(r=><div>{r.meal_4}</div>)}</div>
     <div>meal 5{user.diets.map(r=><div>{r.meal_5}</div>)}</div>
     <div>meal 6{user.diets.map(r=><div>{r.meal_6}</div>)}</div>
+    <div>Monday workouts{user.workouts.map(r=><div>{r.monday}</div>)}</div>
+    <div>Tuesday workouts{user.workouts.map(r=><div>{r.tuesday}</div>)}</div>
+    <div>Wednesday workouts{user.workouts.map(r=><div>{r.wednesday}</div>)}</div>
+    <div>Thursday workouts{user.workouts.map(r=><div>{r.thursday}</div>)}</div>
+    <div>Friday workouts{user.workouts.map(r=><div>{r.friday}</div>)}</div>
+    <div>Saturday workouts{user.workouts.map(r=><div>{r.saturday}</div>)}</div>
+    <div>Sunday workouts{user.workouts.map(r=><div>{r.sunday}</div>)}</div>
+    
     <Navigation setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
 
     </>
