@@ -25,7 +25,7 @@ class DietsController < ApplicationController
     # PUT "/diets/:id"
     def update
         diet = Diet.find(params[:id])
-        diet.update!(production_params)
+        diet.update!(diet_params)
         render json: diet, status: :created
     end
 

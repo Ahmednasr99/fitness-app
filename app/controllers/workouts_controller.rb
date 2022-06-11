@@ -22,7 +22,7 @@ class WorkoutsController < ApplicationController
         def update
             workout = Workout.find(params[:id])
             workout.update!(workout_params)
-            render json: diet, status: :created
+            render json: workout, status: :created
         end
 
         def destroy
@@ -34,6 +34,6 @@ class WorkoutsController < ApplicationController
         private
     
         def workout_params
-            params.permit(:monday, :tuesday, :wednesday, :thursday, :saturday, :sunday, :user_id)
+            params.permit(:monday, :tuesday, :wednesday, :thursday, :saturday, :sunday)
         end
 end
