@@ -7,6 +7,8 @@ import DietDetail from './components/DietDetail';
 import { Route ,Switch } from 'react-router-dom';
 import WorkoutDetails from './components/WorkoutDetails';
 import Home from './components/Home';
+import EditDietForm from './components/EditDietForm';
+import EditWorkoutForm from './components/EditWorkoutForm';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -36,14 +38,20 @@ function App() {
     <Navigation setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
     <Switch>
     <Route exact path="/">
-       <Home name={user.name} user={user} />
-      </Route>
-      <Route exact path="/diets">
-       <DietDetail diets={user.diets} />
-      </Route>
-      <Route>
-       <WorkoutDetails workouts={user.workouts} exact path="/workouts"/>
-      </Route>
+      <Home name={user.name} user={user} />
+    </Route>
+    <Route exact path="/diets">
+      <DietDetail diets={user.diets} />
+    </Route>
+    <Route exact path="/diets/:id/edit">
+      <EditDietForm diets={user.diets}/>
+    </Route>
+    <Route exact path="/workouts/:id/edit">
+      <EditWorkoutForm workouts={user.workouts}/>
+    </Route>
+    <Route>
+      <WorkoutDetails workouts={user.workouts} exact path="/workouts"/>
+    </Route>
     </Switch>
     </>
   );

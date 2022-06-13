@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const DietDetail = ({diets})=>{
 console.log(diets)
@@ -27,7 +28,7 @@ console.log(diets)
       meal 6<div>{r.meal_6}</div>
       </div>)}</div>
 
-      <button>Edit</button>
+      <Link to="/diets/:id/edit"><button>Edit</button></Link>
       <button onClick={handleDelete} >Delete</button>
       </>
     )

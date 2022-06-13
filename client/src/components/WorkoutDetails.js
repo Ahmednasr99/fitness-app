@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const WorkoutDetails = ({workouts})=>{
     const handleDelete = async()=>{
@@ -11,19 +12,19 @@ const WorkoutDetails = ({workouts})=>{
           }
         }
     return(
-        <>
-    <div>{workouts.map(r=><div>
-      Monday workouts<div>{r.monday}</div>
-      Tuesday workouts<div>{r.tuesday}</div>
-      Wednesday workouts<div>{r.wednesday}</div>
-      Thursday workouts<div>{r.thursday}</div>
-      Friday workouts<div>{r.friday}</div>
-      Saturday workouts<div>{r.saturday}</div>
-      Sunday workouts<div>{r.sunday}</div>
+    <>
+      <div>{workouts.map(r=><div>
+        Monday workouts<div>{r.monday}</div>
+        Tuesday workouts<div>{r.tuesday}</div>
+        Wednesday workouts<div>{r.wednesday}</div>
+        Thursday workouts<div>{r.thursday}</div>
+        Friday workouts<div>{r.friday}</div>
+        Saturday workouts<div>{r.saturday}</div>
+        Sunday workouts<div>{r.sunday}</div>
       </div>)}</div>
 
-      <button>Edit</button>
-      <button onClick={handleDelete}>Delete</button>
+        <Link to="/workouts/:id/edit"><button>Edit</button></Link>
+        <button onClick={handleDelete}>Delete</button>
     </>
     )
 }

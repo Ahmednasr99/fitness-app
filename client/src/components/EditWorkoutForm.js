@@ -1,23 +1,35 @@
-import React, {useState} from "react";
+import React,{useState,useEffect} from "react";
+import { useHistory } from "react-router-dom";
 
-import {useHistory } from "react-router-dom";
-const AddWorkout = ()=>{
-  const [form, setForm] = useState({monday: '', tuesday: '', wednesday: '', thursday:'',friday:'',saturday:'',sunday:''})
-  const history = useHistory()
-  const updateForm =(e)=>{
-    setForm({...form, [e.target.getAttribute('name')]: e.target.value})}
-    return (
-        <div className="formarea">
-        <h3>Add a Champion</h3>
-        <form className="newpost" onSubmit={async (e) => {
+const EditWorkoutForm = ({workouts})=>{
+    const {id}=workouts[0]
+    /*use state to update the form */
+    const [form, setForm] = useState({monday: '', tuesday: '', wednesday: '', thursday:'',friday:'',saturday:'',sunday:''})
+    /*define the function updateform */
+    useEffect(() => {
+        fetch(`/workouts/${id}`)
+          .then((res) => res.json())
+          .then((r) => setForm(r));
+      }, [id]);
+    const updateForm =(e)=>{
+        setForm({...form, [e.target.getAttribute('name')]: e.target.value})}
+        /* redirect to specific route*/
+        const history = useHistory()
+        
+    return(
+        <div >
+        <h3>Edit Your Meals</h3>
+        <form onSubmit={async (e) => {
         e.preventDefault()
-        let req = await fetch("/workouts", {
-          method: 'POST',
+        
+        let req = await fetch(`/workouts/${id}`, {
+          method: 'PATCH',
           headers: {'Content-Type': 'application/json'}, 
           body: JSON.stringify(form) 
         })
         let res = await req.json()
-       ((prevState) => {return [...prevState, res]})
+        console.log(res)
+        setForm((prevState) => {return [...prevState, res]})
         alert("done")
         history.push(`/workouts`)
       }} >
@@ -28,12 +40,10 @@ const AddWorkout = ()=>{
           <input type="text" placeholder="friday" name="friday" value={form.friday} onChange={e => updateForm(e)} />
           <input type="text" placeholder="saturday" name="saturday" value={form.saturday} onChange={e => updateForm(e)} />
           <input type="text" placeholder="sunday" name="sunday" value={form.sunday} onChange={e => updateForm(e)} />
+
           <button type="submit">Submit</button>
         </form>
         </div>
-      );
-
-      
+    )
 }
-
-export default AddWorkout
+export default EditWorkoutForm
