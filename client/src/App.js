@@ -3,8 +3,10 @@ import './App.css';
 import Login from './components/LogIn';
 import {useState,useEffect} from 'react';
 import Navigation from './components/Navigation';
-import Detail from './components/detail';
-import AddChampion from './components/AddChampion';
+import DietDetail from './components/DietDetail';
+import { Route ,Switch } from 'react-router-dom';
+import WorkoutDetails from './components/WorkoutDetails';
+import Home from './components/Home';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -31,9 +33,18 @@ function App() {
   /*we send setisauthenticated to the login to change the status so we take the decession which part is gonna render*/ 
   return (
     <>
-    <Detail user={user}/>
-    <AddChampion/>
     <Navigation setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
+    <Switch>
+    <Route exact path="/">
+       <Home name={user.name} user={user} />
+      </Route>
+      <Route exact path="/diets">
+       <DietDetail diets={user.diets} />
+      </Route>
+      <Route>
+       <WorkoutDetails workouts={user.workouts} exact path="/workouts"/>
+      </Route>
+    </Switch>
     </>
   );
 }

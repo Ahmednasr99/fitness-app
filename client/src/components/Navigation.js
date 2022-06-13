@@ -1,4 +1,5 @@
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Navigation({ setIsAuthenticated, setUser, user}) {
     const logout = () => {
@@ -15,7 +16,22 @@ function Navigation({ setIsAuthenticated, setUser, user}) {
    
          
          <div>
-            <button onClick={logout}>Logout</button>
+         <nav>
+                <Link to="/">Home</Link>
+
+                <Link to="/diets">Diet</Link>
+
+                <Link to="/workouts">Workout </Link>
+                
+                <Link to="#">Wall Of Fame</Link>
+
+                <Link to="#">Calculator</Link>
+                
+
+                <Link to="#">Calories List</Link>
+            
+                <button onClick={logout}>Logout</button>
+            </nav>
 
          </div>
 

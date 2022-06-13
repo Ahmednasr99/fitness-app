@@ -17,8 +17,9 @@ class DietsController < ApplicationController
     end
 
     # POST "/diets"
+    # we user .build to assign the diet to the current user
     def create
-        diet = Diet.create!(diet_params)
+        diet =current_user.Diets.build!(diet_params)
         render json: diet, status: :created
     end
 
@@ -32,7 +33,7 @@ class DietsController < ApplicationController
     # DELETE "/diets/:id"
     def destroy
         diet = Diet.find(params[:id])
-        Diet.destroy
+        diet.destroy
         head :no_content
     end
 

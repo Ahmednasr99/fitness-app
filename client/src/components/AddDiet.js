@@ -17,9 +17,10 @@ const AddDiet = ()=>{
           body: JSON.stringify(form) 
         })
         let res = await req.json()
-       ((prevState) => {return [...prevState, res]})
+        console.log(res)
+       /*((prevState) => {return [...prevState, res]})
         alert("done")
-        history.push(`/diets`)
+        history.push(`/diets`)*/
       }} >
           <input type="text"  placeholder="meal_1" name="meal_1" value={form.meal_1} onChange={e => updateForm(e)}/>
           <input type="url" placeholder="meal_2" name="meal_2" value={form.meal_2} onChange={e => updateForm(e)} />

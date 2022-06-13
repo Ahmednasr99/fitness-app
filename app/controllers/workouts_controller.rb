@@ -1,21 +1,24 @@
 class WorkoutsController < ApplicationController
-            # Group Activity => Set 'is_admin' to Fire Only Before Create + Destroy Actions
+        # Group Activity => Set 'is_admin' to Fire Only Before Create + Destroy Actions
 
-           # before_action :is_authorized only: [:create, :update , :destroy]
+        # before_action :is_authorized only: [:create, :update , :destroy]
 
-            # - We only want Admins to have the capability to create / destroy diets
+        # - We only want Admins to have the capability to create / destroy diets
+
+        # GET "/workouts"
         def index 
             render json: Workout.all
         end 
     
-        
+        #GET "/WORKOUTS/:ID"
         def show
             workout = Workout.find(params[:id])
             render json: workout
         end
 
+        # we user .build to assign the workout to the current user
         def create
-            workout = Workout.create!(workout_params)
+            workout =current_user.Workouts.build!(workout_params)
             render json: workout, status: :created
         end
 
