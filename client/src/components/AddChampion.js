@@ -27,7 +27,7 @@ const AddChampion = ()=>{
           weight:<input type="number"  placeholder="Weight" name="weight" value={form.weight} onChange={e => updateForm(e)}/>
           Height:<input type="number" placeholder="Height" name="height" value={form.height} onChange={e => updateForm(e)} />
           Category:<input type="text" placeholder="Category" name="category" value={form.category} onChange={e => updateForm(e)} />
-          Nationality<input type="text" placeholder="Nationality" name="nationality" value={form.nationality} onChange={e => updateForm(e)} />
+          Nationality:<input type="text" placeholder="Nationality" name="nationality" value={form.nationality} onChange={e => updateForm(e)} />
           <button type="submit">Submit</button>
         </form>
         </div>

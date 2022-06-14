@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
+import DltButton from "./DltButton";
 
 const ChampionCard = ()=> { 
   const [champions,setChampions]=useState([])
@@ -25,6 +26,7 @@ useEffect(request,[])
             <h3>nationality: {champion.nationality}</h3>
             <h3>Weight: {champion.weight} lb</h3>
             <h3>Competing Category: {champion.category}</h3>
+            <DltButton champion={champion} setChampions={setChampions}/>
             </div>
           )
           })
