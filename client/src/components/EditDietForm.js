@@ -33,12 +33,12 @@ const EditDietForm = ({diets})=>{
         alert("done")
         history.push(`/diets`)
       }} >
-          <input type="text"  placeholder="meal_1" name="meal_1" value={form.meal_1} onChange={e => updateForm(e)}/>
-          <input type="text" placeholder="meal_2" name="meal_2" value={form.meal_2} onChange={e => updateForm(e)} />
-          <input type="text" placeholder="meal_3" name="meal_3" value={form.meal_3} onChange={e => updateForm(e)} />
-          <input type="text"  placeholder="meal_4" name="meal_4" value={form.meal_4} onChange={e => updateForm(e)}/>
-          <input type="text" placeholder="meal_5" name="meal_5" value={form.meal_5} onChange={e => updateForm(e)} />
-          <input type="text" placeholder="meal_6" name="meal_6" value={form.meal_6} onChange={e => updateForm(e)} />
+          Meal 1:<input type="text"  placeholder="meal_1" name="meal_1" value={form.meal_1} onChange={e => updateForm(e)}/>
+          Meal 2:<input type="text" placeholder="meal_2" name="meal_2" value={form.meal_2} onChange={e => updateForm(e)} />
+          Meal 3:<input type="text" placeholder="meal_3" name="meal_3" value={form.meal_3} onChange={e => updateForm(e)} />
+          Meal 4:<input type="text"  placeholder="meal_4" name="meal_4" value={form.meal_4} onChange={e => updateForm(e)}/>
+          Meal 5:<input type="text" placeholder="meal_5" name="meal_5" value={form.meal_5} onChange={e => updateForm(e)} />
+          Meal 6:<input type="text" placeholder="meal_6" name="meal_6" value={form.meal_6} onChange={e => updateForm(e)} />
           <button type="submit">Submit</button>
         </form>
         </div>

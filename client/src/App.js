@@ -9,6 +9,8 @@ import WorkoutDetails from './components/WorkoutDetails';
 import Home from './components/Home';
 import EditDietForm from './components/EditDietForm';
 import EditWorkoutForm from './components/EditWorkoutForm';
+import ChampionCard from './components/ChampionsCard';
+import AddChampion from './components/AddChampion';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -49,8 +51,14 @@ function App() {
     <Route exact path="/workouts/:id/edit">
       <EditWorkoutForm workouts={user.workouts}/>
     </Route>
-    <Route>
-      <WorkoutDetails workouts={user.workouts} exact path="/workouts"/>
+    <Route exact path="/workouts">
+      <WorkoutDetails workouts={user.workouts} />
+    </Route>
+    <Route exact path="/champions">
+      <ChampionCard/>
+    </Route>
+    <Route exact path="/champions/new">
+      <AddChampion/>
     </Route>
     </Switch>
     </>

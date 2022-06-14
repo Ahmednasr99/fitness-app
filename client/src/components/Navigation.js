@@ -23,7 +23,7 @@ function Navigation({ setIsAuthenticated, setUser, user}) {
 
                 <Link to="/workouts">Workout </Link>
                 
-                <Link to="#">Wall Of Fame</Link>
+                <Link to="/champions">Wall Of Fame</Link>
 
                 <Link to="#">Calculator</Link>
                 

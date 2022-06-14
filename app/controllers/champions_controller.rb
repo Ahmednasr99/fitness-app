@@ -1,6 +1,6 @@
 class ChampionsController < ApplicationController
 
-    before_action :is_admin, only: [:create,:update,:Destroy]
+    #before_action :is_admin, only: [:create,:update,:Destroy]
 
 
     def index
@@ -14,7 +14,7 @@ class ChampionsController < ApplicationController
       
       def create
         champion = Champion.create!(champion_params)
-        render json: champion, status: :created
+        render json: champion
       end
       
       def update

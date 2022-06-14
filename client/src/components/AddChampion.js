@@ -17,17 +17,17 @@ const AddChampion = ()=>{
           body: JSON.stringify(form) 
         })
         let res = await req.json()
-       ((prevState) => {return [...prevState, res]})
+        console.log(res)
         alert("done")
         history.push(`/champions`)
       }} >
-          <input type="text"  placeholder="Name" name="name" value={form.name} onChange={e => updateForm(e)}/>
-          <input type="url" placeholder="Image" name="image_url" value={form.image_url} onChange={e => updateForm(e)} />
-          <input type="date" placeholder="Birth date" name="birthDate" value={form.birthDate} onChange={e => updateForm(e)} />
-          <input type="number"  placeholder="Weight" name="weight" value={form.weight} onChange={e => updateForm(e)}/>
-          <input type="number" placeholder="Height" name="height" value={form.height} onChange={e => updateForm(e)} />
-          <input type="text" placeholder="Category" name="category" value={form.category} onChange={e => updateForm(e)} />
-          <input type="text" placeholder="Nationality" name="nationality" value={form.nationality} onChange={e => updateForm(e)} />
+          Name:<input type="text"  placeholder="Name" name="name" value={form.name} onChange={e => updateForm(e)}/>
+          Image_url:<input type="url" placeholder="Image" name="image_url" value={form.image_url} onChange={e => updateForm(e)} />
+          Birth Date:<input type="date" placeholder="Birth date" name="birthDate" value={form.birthDate} onChange={e => updateForm(e)} />
+          weight:<input type="number"  placeholder="Weight" name="weight" value={form.weight} onChange={e => updateForm(e)}/>
+          Height:<input type="number" placeholder="Height" name="height" value={form.height} onChange={e => updateForm(e)} />
+          Category:<input type="text" placeholder="Category" name="category" value={form.category} onChange={e => updateForm(e)} />
+          Nationality<input type="text" placeholder="Nationality" name="nationality" value={form.nationality} onChange={e => updateForm(e)} />
           <button type="submit">Submit</button>
         </form>
         </div>

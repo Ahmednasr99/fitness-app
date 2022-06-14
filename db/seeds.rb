@@ -10,7 +10,7 @@
 #users
 u1 = User.create(name: 'Louis', email: 'louis@gmail.com', admin: true, password: "password")
 u2 = User.create(name: 'Grace', email: 'grace@gmail.com', admin: true, password: "password")
-u3 = User.create(name: "ahmed", email: 'ahmed@gmail.com', admin: true, password: "password")
+u3 = User.create(name: "ahmed", email: 'ahmed@gmail.com', admin: true, password: "ahmed")
 u4 = User.create(name: "me", email: 'me@gmail.com', admin: true, password: "password")
 #diets
 d1 = Diet.create(meal_1: '150 g otsmeal , 5 eggs ',
@@ -81,6 +81,12 @@ c2 = Champion.create(name:"Ronnie Coleman",
       nationality:"American",
       height:180)
     
-    
+c3 = Champion.create(name:"Big Ramy",
+            image_url:"https://pbs.twimg.com/media/EpqGn6rVQAAc3-6.jpg",
+            birthDate:"September 16, 1984",
+            weight:295,
+            category:"open weight",
+            nationality:"Egyptien",
+            height:175) 
  
 puts "seeds done "
