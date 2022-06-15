@@ -8,7 +8,7 @@ const AddWorkout = ()=>{
     setForm({...form, [e.target.getAttribute('name')]: e.target.value})}
     return (
         <div className="formarea">
-        <h3>Add a Champion</h3>
+        <h3>Add Your Workout</h3>
         <form className="newpost" onSubmit={async (e) => {
         e.preventDefault()
         let req = await fetch("/workouts", {
@@ -17,7 +17,8 @@ const AddWorkout = ()=>{
           body: JSON.stringify(form) 
         })
         let res = await req.json()
-       ((prevState) => {return [...prevState, res]})
+        console.log(res)
+        /*setForm((prevState) => {return [...prevState, res]})*/
         alert("done")
         history.push(`/workouts`)
       }} >

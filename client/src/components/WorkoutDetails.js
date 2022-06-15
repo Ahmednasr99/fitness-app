@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AddWorkout from "./AddWorkout";
 
 const WorkoutDetails = ({workouts})=>{
     const handleDelete = async()=>{
@@ -12,7 +13,9 @@ const WorkoutDetails = ({workouts})=>{
           }
         }
     return(
-    <>
+      <div>
+      {workouts.length!==0?
+      <div>
       <div>{workouts.map(r=><div>
         Monday workouts<div>{r.monday}</div>
         Tuesday workouts<div>{r.tuesday}</div>
@@ -22,10 +25,15 @@ const WorkoutDetails = ({workouts})=>{
         Saturday workouts<div>{r.saturday}</div>
         Sunday workouts<div>{r.sunday}</div>
       </div>)}</div>
-
         <Link to="/workouts/:id/edit"><button>Edit</button></Link>
         <button onClick={handleDelete}>Delete</button>
-    </>
+        </div>
+      :
+    
+      <div><AddWorkout/></div>
+    
+    }
+    </div>
     )
 }
 export default WorkoutDetails

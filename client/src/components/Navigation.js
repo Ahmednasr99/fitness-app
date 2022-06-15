@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 
 function Navigation({ setIsAuthenticated, setUser, user}) {
+    const history = useHistory()
     const logout = () => {
         fetch('/logout',{
             method:'DELETE'
@@ -9,6 +11,9 @@ function Navigation({ setIsAuthenticated, setUser, user}) {
         .then(()=>{
             setIsAuthenticated(false)
             setUser(null)
+        })
+        .then(()=>{
+            history.push(`/`)
         })
     }
     return (

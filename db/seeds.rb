@@ -13,6 +13,8 @@ u2 = User.create(name: 'Grace', email: 'grace@gmail.com', admin: true, password:
 u3 = User.create(name: "ahmed", email: 'ahmed@gmail.com', admin: true, password: "ahmed")
 u4 = User.create(name: "me", email: 'me@gmail.com', admin: true, password: "password")
 #diets
+# Diet.create('name')
+# Meal.create(content: '150 g oatmeal, 5 eggs', done: false, diet_id)
 d1 = Diet.create(meal_1: '150 g otsmeal , 5 eggs ',
       meal_2: '150 g rice , 150 g chicken,40 g vegtables',
       meal_3: '150 g rice , 150 g steak,40 g vegtables',

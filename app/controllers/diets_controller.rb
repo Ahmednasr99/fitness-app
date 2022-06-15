@@ -19,7 +19,7 @@ class DietsController < ApplicationController
     # POST "/diets"
     # we user .build to assign the diet to the current user
     def create
-        diet =current_user.Diets.build!(diet_params)
+        diet =current_user.diets.create!(diet_params)
         render json: diet, status: :created
     end
 
