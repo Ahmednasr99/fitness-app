@@ -1,3 +1,4 @@
+
 import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import DltButton from "./DltButton";
@@ -14,27 +15,36 @@ const ChampionCard = ()=> {
 useEffect(request,[])
     return (
         <>
-      <div >
-          <Link to="/champions/new"><button>Add Champion</button></Link>
+        <Link to="/champions/new"><button>Add Champion</button></Link>
+      <div style={{backgroundImage: `url(https://t4.ftcdn.net/jpg/02/57/65/13/240_F_257651358_mgb0VrHgGqNSKNjiJSltEsaHhY35RtT4.jpg)` }}>
+          
         {
           champions.map((champion) =>{
             return(
-            <div className="postItems">
-            <h2>{champion.name}</h2>
-            <img width="300px" height="200px" alt="" src={champion.image_url}/>
-            <h3>Age</h3>
-            <h3>nationality: {champion.nationality}</h3>
-            <h3>Weight: {champion.weight} lb</h3>
-            <h3>Competing Category: {champion.category}</h3>
-            <DltButton champion={champion} setChampions={setChampions}/>
-            </div>
-          )
-          })
-        }
+<div>
+  <div className="container">
+    <div className="card card0" style={{backgroundImage: `url(${champion.image_url})` }}>
+      <div className="border">
+       <h3>{champion.name}</h3>
+       <div className="opac">
+         <h5>{champion.nationality}</h5>
+         <h5>{champion.weight}lb</h5>
+         <h5>{champion.height}cm</h5>
+         <h5>{champion.category}</h5>
+         <h5>{champion.birthDate}</h5>
+        </div>
+      <div className="delete"><DltButton  champion={champion} setChampions={setChampions}/></div>
       </div>
+    </div>
+  </div>
+</div>
+)
+})
+}
+</div>
 
-      </>
-    );
-  }
+</>
+);
+}
   
   export default ChampionCard

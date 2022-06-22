@@ -17,8 +17,8 @@ const EditWorkoutForm = ({workouts})=>{
         const history = useHistory()
         
     return(
-        <div >
-        <h3>Edit Your Workout</h3>
+        <div className="sumbitFormarea" >
+        <p>Edit Your Workout</p>
         <form onSubmit={async (e) => {
         e.preventDefault()
         
@@ -32,16 +32,16 @@ const EditWorkoutForm = ({workouts})=>{
         setForm((prevState) => {return [...prevState, res]})
         alert("done")
         history.push(`/workouts`)
-      }} >
-          Monday:<input type="text"  placeholder="monday" name="monday" value={form.monday} onChange={e => updateForm(e)}/>
-          Tuesday:<input type="text" placeholder="tuesday" name="tuesday" value={form.tuesday} onChange={e => updateForm(e)} />
-          Wednesday:<input type="text" placeholder="wednesday" name="wednesday" value={form.wednesday} onChange={e => updateForm(e)} />
-          Thursday:<input type="text"  placeholder="thursday" name="thursday" value={form.thursday} onChange={e => updateForm(e)}/>
-          Friday:<input type="text" placeholder="friday" name="friday" value={form.friday} onChange={e => updateForm(e)} />
-          Saturday:<input type="text" placeholder="saturday" name="saturday" value={form.saturday} onChange={e => updateForm(e)} />
-          Sunday:<input type="text" placeholder="sunday" name="sunday" value={form.sunday} onChange={e => updateForm(e)} />
-
+      }} ><div className="innerForm">
+          Monday:   <input type="text"  placeholder="monday" name="monday" value={form.monday} onChange={e => updateForm(e)}/><br></br>
+          Tuesday:  <input type="text" placeholder="tuesday" name="tuesday" value={form.tuesday} onChange={e => updateForm(e)} /><br></br>
+          Wednesday:<input type="text" placeholder="wednesday" name="wednesday" value={form.wednesday} onChange={e => updateForm(e)} /><br></br>
+          Thursday: <input type="text"  placeholder="thursday" name="thursday" value={form.thursday} onChange={e => updateForm(e)}/><br></br>
+          Friday:   <input type="text" placeholder="friday" name="friday" value={form.friday} onChange={e => updateForm(e)} /><br></br>
+          Saturday: <input type="text" placeholder="saturday" name="saturday" value={form.saturday} onChange={e => updateForm(e)} /><br></br>
+          Sunday:   <input type="text" placeholder="sunday" name="sunday" value={form.sunday} onChange={e => updateForm(e)} /><br></br>
           <button type="submit">Submit</button>
+          </div>
         </form>
         </div>
     )
