@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import AddDiet from "./AddDiet";
+import CheckBox from "./CheckBox";
+import EditBtn from "./EditBtn";
+import {  FaTrash } from "react-icons/fa";
+
 
 const DietDetail = ({diets})=>{
-console.log(diets)
-const [visible,setVisible] = useState(false)
-
-
-
  const handleDelete = async()=>{
     const {id}=diets[0]
     let req = await fetch(`/diets/${id}`,{
@@ -17,21 +15,37 @@ const [visible,setVisible] = useState(false)
       alert("delete sucess")
       }
     }
-   
-  
     return(
-    <div>{
+    <div className="mealsContainer">{
       diets.length!==0?
-    <><div>
-      <ul>{diets.map(r => <div>
-          <li>meal 1<div>{r.meal_1} <input type="checkbox" name="done" value="Done" onClick={()=>setVisible(!visible)} /><label for="done">{visible?"Done":""}</label></div></li>
-          <li>meal 2<div>{r.meal_2}</div></li>
-          <li>meal 3<div>{r.meal_3}</div></li>
-          <li>meal 4<div>{r.meal_4}</div></li>
-          <li>meal 5<div>{r.meal_5}</div></li>
-          <li>meal 6<div>{r.meal_6}</div></li>
-        </div>)}</ul>
-        </div><Link to="/diets/:id/edit"><button>Edit</button></Link><button onClick={handleDelete}>Delete</button></>
+    <>
+    <div >
+      {diets.map(r => <div className="mainContainer">
+          <p>Daily meals</p>
+          <button title="Delete" onClick={handleDelete}><FaTrash/></button>
+          <div class="tableContainer">
+          <div class="table">
+		<div class="table-header">
+			<div class="header__item">Meal Detail</div>
+			<div class="header__item">check</div>
+			<div class="header__item">Edit</div>
+		</div>
+    {r.meals.map(element=>
+		<div class="table-content">	
+			<div class="table-row">		
+				<div class="table-data">{element.content}</div>
+				<div class="table-data"><CheckBox  element={element}/></div>
+				<div class="table-data"><EditBtn  element={element} /></div>
+			</div>
+		</div>)}
+	
+</div>
+           </div>
+          </div>)}
+        
+      </div>{/*<Link to="/diets/:id/edit"><button>Edit</button></Link>*/} 
+        
+        </>
         :
         <div>
           <AddDiet/>
@@ -43,3 +57,23 @@ const [visible,setVisible] = useState(false)
 
 }
 export default DietDetail
+
+
+/*<div class="container">
+	
+	<div class="table">
+		<div class="table-header">
+			<div class="header__item">Meal Detail</div>
+			<div class="header__item">check</div>
+			<div class="header__item">Edit</div>
+		</div>
+    {r.meals.map(element=>
+		<div class="table-content">	
+			<div class="table-row">		
+				<div class="table-data">{element.content}</div>
+				<div class="table-data"><CheckBox element={element}/></div>
+				<div class="table-data"><EditBtn element={element} /></div>
+			</div>)}
+		</div>	
+	</div>
+</div>*/

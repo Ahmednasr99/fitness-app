@@ -25,7 +25,7 @@ const DltButton = ({champion,setChampions}) =>{
     
     return(
         <div>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleDelete}>x</button>
         </div>
     )
 }

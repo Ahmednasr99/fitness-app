@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {useHistory } from "react-router-dom";
+import { FcHome } from "@react-icons/all-files/fc/FcHome";
+import { FcCalculator } from "@react-icons/all-files/fc/FcCalculator";
+import {FcList } from "@react-icons/all-files/fc/FcList";
+import { MdFoodBank } from "react-icons/md";
+import { GiWeightLiftingUp } from "react-icons/gi";
+import { GiStoneWall } from "react-icons/gi";
+
 
 function Navigation({ setIsAuthenticated, setUser, user}) {
     const history = useHistory()
@@ -17,31 +24,33 @@ function Navigation({ setIsAuthenticated, setUser, user}) {
         })
     }
     return (
-        <> 
+        
    
+   <header className="header">
+        <div className="headerItems">
          
-         <div>
-         <nav>
-                <Link to="/">Home</Link>
+            <Link to="/"><FcHome/>Home</Link>
 
-                <Link to="/diets">Diet</Link>
+            <Link to="/diets"><MdFoodBank/>Diet</Link>
 
-                <Link to="/workouts">Workout </Link>
+            <Link to="/workouts"><GiWeightLiftingUp/>Workout </Link>
                 
-                <Link to="/champions">Wall Of Fame</Link>
+            <Link to="/champions"><GiStoneWall/>Wall Of Fame</Link>
 
-                <Link to="#">Calculator</Link>
+            <Link to="/calculator"><FcCalculator/>Calculator</Link>
                 
 
-                <Link to="#">Calories List</Link>
+            <Link to="/calorieslist"><FcList/>Calories List</Link>
             
-                <button onClick={logout}>Logout</button>
-            </nav>
+            <button  onClick={logout}>Logout</button>
+            
 
-         </div>
+        </div>
+    </header>
 
-        </>
+        
     )
 }
 
 export default Navigation;
+

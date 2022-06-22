@@ -6,6 +6,7 @@ const Login = ({setUser,setIsAuthenticated})=>{
     const [username,setUsername]= useState('')
     const [password,setPassword]= useState('')
     const [error,setError]= useState([])
+    const [show,setShow] = useState(false)
     
     const onSubmit=(e)=>{
         e.preventDefault()
@@ -36,21 +37,33 @@ const Login = ({setUser,setIsAuthenticated})=>{
     }
 
     return(
-        <div>
-            <form onSubmit={onSubmit}>
-            <label>Username
-             <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)}/>
+        <div className='components'>
+            <div>
+            <div className='sidePic'>
+                <img src='https://i.pinimg.com/originals/32/35/08/3235080bc4e1cc9192097c991d9ce381.jpg' alt=''/>
+            </div>
+            </div>
+            <div className='divElement'>
+            <form className='formarea' onSubmit={onSubmit}>
+                <br></br>
+            <label>Username<br></br>
+            <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)}/>
             </label>
-
-            <label>Password
-             <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+            <br></br>
+            <label>Password<br></br>
+            <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
             </label>
+            <br></br>
+            <br></br>
             <input type="submit" value="Login" />
             </form>
+            {error?<div>{error}</div>:null}<br></br>
+            <div className='signupBtn'>
+            <button onClick={()=>setShow(!show)}>sign up</button>
+            </div>
+            <div style={{display:show?"block":"none"}} ><Auth setUser={setUser} setIsAuthenticated={setUser}/></div>
             {error?<div>{error}</div>:null}
-            
-            <Auth setUser={setUser} setIsAuthenticated={setUser}/>
-            {error?<div>{error}</div>:null}
+            </div>
         </div>
     )
 }

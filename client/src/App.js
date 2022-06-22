@@ -11,6 +11,8 @@ import EditDietForm from './components/EditDietForm';
 import EditWorkoutForm from './components/EditWorkoutForm';
 import ChampionCard from './components/ChampionsCard';
 import AddChampion from './components/AddChampion';
+import Calculator from './components/Calculator';
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -31,6 +33,7 @@ function App() {
     
 
   },[]);
+  
 
   // Reroute user to <Login /> Component if not authenticated
   if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
@@ -59,6 +62,9 @@ function App() {
     </Route>
     <Route exact path="/champions/new">
       <AddChampion/>
+    </Route>
+    <Route exact path="/calculator">
+      <Calculator/>
     </Route>
     </Switch>
     </>
