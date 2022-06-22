@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_10_061013) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_15_060150) do
   create_table "champions", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
@@ -34,6 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_10_061013) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_diets_on_user_id"
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string "content"
+    t.integer "diet_id", null: false
+    t.boolean "ongoing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diet_id"], name: "index_meals_on_diet_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,5 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_10_061013) do
   end
 
   add_foreign_key "diets", "users"
+  add_foreign_key "meals", "diets"
   add_foreign_key "workouts", "users"
 end

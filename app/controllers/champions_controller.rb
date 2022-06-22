@@ -32,7 +32,7 @@ class ChampionsController < ApplicationController
       private
       
       def champion_params
-        params.permit(:name, :brithDate, :image_url, :weight, :category)
+        params.permit(:name, :brithDate, :image_url, :weight, :category, :nationality, :birthDate, :height)
       end
       
 end
